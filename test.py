@@ -9,6 +9,8 @@ import math
 import time
 import matplotlib.pyplot as plt
 
+#test line after import
+# only 2 lines of comments
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"using {device}")
