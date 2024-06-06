@@ -127,6 +127,7 @@ class Environment:
     def configure(self):
         self.steps_per_second = 5
         self.max_speed = 21
+        self.target_distance = 8
         # in deg/.2s, 36 -> 180deg/s 
         self.max_yaw_rate = 36
         self.tolerance = 2 
@@ -205,7 +206,7 @@ class Environment:
         # images = np.array([])
         for response in responses:
             img = np.array(response.image_data_float).reshape((40,40))
-            plt.imshow(img)##
+            plt.imshow(img, cmap = 'gray')##
             plt.show()##
             #img size 40 x 40, divide by 9 22 9
             state.append(np.min(img[:, :9]))
