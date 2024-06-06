@@ -68,7 +68,7 @@ class Critic(nn.Module):
     
 class Target:
     def __init__(self):
-        target_temp = np.random.rand(3)*160-80 # target can be inside of an object
+        target_temp = np.random.rand(3)*140-70 # target can be inside of an object
         if target_temp[2] > -5:
             #NED coord
             target_temp[2] = 5
@@ -91,23 +91,23 @@ class Target:
         # update pos
         self.world_pos += self.vel
 
-        if -80 > self.world_pos.x_val:
+        if -85 > self.world_pos.x_val:
             self.accel.x_val = 1
             is_onEdge = True
             self.how_long = 0
-        elif self.world_pos.x_val > 80:
+        elif self.world_pos.x_val > 85:
             self.accel.x_val = -1
             is_onEdge = True
             self.how_long = 0
-        if -80 > self.world_pos.y_val:
+        if -85 > self.world_pos.y_val:
             self.accel.y_val = 1
             is_onEdge = True
             self.how_long = 0
-        elif self.world_pos.y_val > 80:
+        elif self.world_pos.y_val > 85:
             self.accel.y_val = -1
             is_onEdge = True
             self.how_long = 0
-        if -80 > self.world_pos.z_val:
+        if -85 > self.world_pos.z_val:
             self.accel.z_val = 1
             is_onEdge = True
             self.how_long = 0
