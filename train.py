@@ -8,7 +8,6 @@ import os
 import math
 import time
 import json
-import matplotlib.pyplot as plt##
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -206,8 +205,6 @@ class Environment:
         # images = np.array([])
         for response in responses:
             img = np.array(response.image_data_float).reshape((40,40))
-            plt.imshow(img, cmap = 'gray')##
-            plt.show()##
             #img size 40 x 40, divide by 9 22 9
             state.append(np.min(img[:, :9]))
             state.append(np.min(img[:9, 9:31]))
