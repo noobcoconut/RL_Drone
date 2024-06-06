@@ -117,7 +117,7 @@ class Target:
 
 
         if self.how_long < 1 and not is_onEdge:
-            self.accel = airsim.Vector3r(np.random.rand(3)*1.2 - 0.6, np.random.rand(3)*1.2 - 0.6, np.random.rand(3)*1.2 - 0.6)
+            self.accel = airsim.Vector3r(np.random.rand()*1.2 - 0.6, np.random.rand()*1.2 - 0.6, np.random.rand()*1.2 - 0.6)
             self.how_long = np.random.randint(5,50)
 
 
