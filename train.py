@@ -127,7 +127,7 @@ class Environment:
     def configure(self):
         self.steps_per_second = 5
         self.max_speed = 21
-        self.target_distance = 8
+        self.goal_distance = 8
         # in deg/.2s, 36 -> 180deg/s 
         self.max_yaw_rate = 36
         self.tolerance = 2 
@@ -270,8 +270,8 @@ class Environment:
             print(f"collided! step:{self.t_step}")
             done = True
         else:
-            inner = self.target_distance - self.tolerance
-            outter = self.target_distance + self.tolerance
+            inner = self.goal_distance - self.tolerance
+            outter = self.goal_distance + self.tolerance
             local_target_norot = self.target.world_pos - self.client.simGetVehiclePose().position
             target_deviation = local_target_norot.get_length()
             if target_deviation > outter:
