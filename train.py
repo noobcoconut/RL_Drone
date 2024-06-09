@@ -26,9 +26,9 @@ class Configurations:
     gae_lambda = 0.95
     actor_hidden_size = 256
     critic_hidden_size = 256
-    num_episodes = 80
+    num_episodes = 100
     max_timestep = 600
-    checkpoint_path = "D:\\unreal\\Check"
+    checkpoint_path = "D:\\unreal\\git_repos\\RL_Drone\\Check"
     
     def __init__(self):
         pass
@@ -335,7 +335,7 @@ actor_optimizer = optim.Adam(actor.parameters(), lr=configs.lr)
 critic_optimizer = optim.Adam(critic.parameters(), lr=configs.lr)
 
 # load checkpoint data
-print("loading check point")
+# print("loading check point")
 # check_file = "Check-291941.pth"
 # checkpoint = torch.load(os.path.join("D:\\unreal\\Check", check_file))
 # actor.load_state_dict(checkpoint['Actor_state_dict'])
