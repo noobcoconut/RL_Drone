@@ -73,10 +73,13 @@ class Target:
             #NED coord
             target_temp[2] = 5
         self.world_pos = airsim.Vector3r(target_temp[0], target_temp[1], target_temp[2])
-        acc_tmp = np.random.rand(3)*1.2 - 0.6 # +- 6.7m/ss max
+        # acc_tmp = np.random.rand(3)*1.2 - 0.6 # +- 6.7m/ss max
+        acc_tmp = np.random.rand(3)*0.2 - 0.1 # +- ?m/ss max
+        #!!!!!!!!
         self.accel = airsim.Vector3r(acc_tmp[0], acc_tmp[1], acc_tmp[2])
         self.vel = airsim.Vector3r(0,0,0)
-        self.max_speed = 10
+        self.max_speed = 1
+        #!!!!!!!!!!
         self.how_long = 0
 
     def step(self):
@@ -118,7 +121,7 @@ class Target:
 
         if self.how_long < 1 and not is_onEdge:
             self.accel = airsim.Vector3r(np.random.rand()*1.2 - 0.6, np.random.rand()*1.2 - 0.6, np.random.rand()*1.2 - 0.6)
-            self.how_long = np.random.randint(5,50)
+            self.how_long = np.random.randint(10,50)
 
 
 class Environment:
@@ -126,10 +129,12 @@ class Environment:
     def configure(self):
         self.steps_per_second = 5
         self.max_speed = 21
-        self.goal_distance = 8
+        self.goal_distance = 6
+        # !!!!!!!!^8
         # in deg/.2s, 36 -> 180deg/s 
         self.max_yaw_rate = 36
-        self.tolerance = 2 
+        self.tolerance = 4
+        #!!!!!!!!!!^2
         self.max_wind = 5
         self.wind_d_rate = 0.1
 
@@ -178,7 +183,7 @@ class Environment:
         self.t_in = -1
         self.t_step = 0
         self.was_in = False
-        return self.get_state((0,0,-2,0))
+        return self.get_state((0,0,-1,0))
 
     def get_state(self, last_vel):
         state = [] # target x, y ,z / closest front, left, right, back, bottom, top / wind x y z / prevmove vxyz yaw
@@ -283,7 +288,8 @@ class Environment:
                     self.t_in = self.t_step
                     print(f"enterted! step: {self.t_in}")
                     self.was_in = True
-                reward = np.log(self.t_step - self.t_in + np.e)+1
+                reward = np.log(self.t_step - self.t_in + np.e)+2
+                #!!!!!!
             else:
                 # too close
                 print(f"too close, step: {self.t_step}")
@@ -291,7 +297,7 @@ class Environment:
                 reward = -1/(target_deviation/inner + 0.5)
         
         my_pos = self.client.simGetVehiclePose().position
-        if my_pos.x_val < -100 or 100 < my_pos.x_val or my_pos.y_val < -100 or 100 < my_pos.y_val or my_pos.z_val < -100:
+        if my_pos.x_val < -100 or 100 < my_pos.x_val or my_pos.y_val < -100 or 100 < my_pos.y_val or my_pos.z_val < -85:
             # out of env, too high up
             done = True
         return self.get_state((vx, vy, vz, vyaw)), reward, done, None
