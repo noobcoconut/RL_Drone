@@ -91,23 +91,23 @@ class Target:
         # update pos
         self.world_pos += self.vel
 
-        if -85 > self.world_pos.x_val:
+        if -80 > self.world_pos.x_val:
             self.accel.x_val = 1
             is_onEdge = True
             self.how_long = 0
-        elif self.world_pos.x_val > 85:
+        elif self.world_pos.x_val > 80:
             self.accel.x_val = -1
             is_onEdge = True
             self.how_long = 0
-        if -85 > self.world_pos.y_val:
+        if -80 > self.world_pos.y_val:
             self.accel.y_val = 1
             is_onEdge = True
             self.how_long = 0
-        elif self.world_pos.y_val > 85:
+        elif self.world_pos.y_val > 80:
             self.accel.y_val = -1
             is_onEdge = True
             self.how_long = 0
-        if -85 > self.world_pos.z_val:
+        if -80 > self.world_pos.z_val:
             self.accel.z_val = 1
             is_onEdge = True
             self.how_long = 0
@@ -211,7 +211,6 @@ class Environment:
             state.append(np.min(img[9:31, 9:31]))
             state.append(np.min(img[31:, 9:31]))
             state.append(np.min(img[:, 31:]))
-        responses = None
 
 
         # wind in local
@@ -335,14 +334,14 @@ actor_optimizer = optim.Adam(actor.parameters(), lr=configs.lr)
 critic_optimizer = optim.Adam(critic.parameters(), lr=configs.lr)
 
 # load checkpoint data
-# print("loading check point")
-# check_file = "Check-291941.pth"
-# checkpoint = torch.load(os.path.join("D:\\unreal\\Check", check_file))
-# actor.load_state_dict(checkpoint['Actor_state_dict'])
-# critic.load_state_dict(checkpoint['Critic_state_dict'])
-# actor_optimizer.load_state_dict(checkpoint['optimizerA_state_dict'])
-# critic_optimizer.load_state_dict(checkpoint['optimizerC_state_dict'])
-# print("checking point loaded")
+print("loading check point")
+check_file = "Check-101704.pth"
+checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check1", check_file))
+actor.load_state_dict(checkpoint['Actor_state_dict'])
+critic.load_state_dict(checkpoint['Critic_state_dict'])
+actor_optimizer.load_state_dict(checkpoint['optimizerA_state_dict'])
+critic_optimizer.load_state_dict(checkpoint['optimizerC_state_dict'])
+print("checking point loaded")
 
 
 actor.train()
@@ -399,7 +398,7 @@ for episode in range(configs.num_episodes):
     critic_optimizer.step()
     print(f"episode done: {episode}")
     rewards_hist.append(float(np.array(rewards).sum()))
-    if episode % 10 == 0 and episode > 1:
+    if (episode+1) % 10 == 0 and episode > 1:
         # print(f"episode: {episode}, Total Loss: {total_loss.item()}")
         print(f"episode: {episode}, Rewards: {np.array(rewards).sum()}")
         torch.save({
