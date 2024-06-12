@@ -131,11 +131,11 @@ class Environment:
     def configure(self):
         self.steps_per_second = 5
         self.max_speed = 21
-        self.goal_distance = 7
+        self.goal_distance = 8
         # !!!!!!!!^8
         # in deg/.2s, 36 -> 180deg/s 
         self.max_yaw_rate = 36
-        self.tolerance = 4
+        self.tolerance = 3
         #!!!!!!!^2
         self.max_wind = 5
         self.wind_d_rate = 0.1
@@ -290,7 +290,7 @@ class Environment:
                     self.t_in = self.t_step
                     print(f"entered! step: {self.t_in}")
                     self.was_in = True
-                reward = np.log(self.t_step - self.t_in + np.e)+2
+                reward = np.log(self.t_step - self.t_in + np.e)+1.4
                 #!!!!!!
             else:
                 # too close
