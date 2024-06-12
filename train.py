@@ -344,8 +344,8 @@ critic_optimizer = optim.Adam(critic.parameters(), lr=configs.lr)
 
 # load checkpoint data
 print("loading check point")
-check_file = "Check-121802.pth"
-checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check22b", check_file))
+check_file = "Check-102045.pth"
+checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check2", check_file))
 actor.load_state_dict(checkpoint['Actor_state_dict'])
 critic.load_state_dict(checkpoint['Critic_state_dict'])
 actor_optimizer.load_state_dict(checkpoint['optimizerA_state_dict'])
