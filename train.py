@@ -27,6 +27,7 @@ class Configurations:
     actor_hidden_size = 256
     critic_hidden_size = 256
     num_episodes = 100
+    #!!!!!
     max_timestep = 600
     checkpoint_path = "D:\\unreal\\git_repos\\RL_Drone\\Check"
     
@@ -74,12 +75,12 @@ class Target:
             target_temp[2] = 5
         self.world_pos = airsim.Vector3r(target_temp[0], target_temp[1], target_temp[2])
         # acc_tmp = np.random.rand(3)*1.2 - 0.6 # +- 6.7m/ss max
-        acc_tmp = np.random.rand(3)*0.2 - 0.1 # +- ?m/ss max
+        acc_tmp = np.random.rand(3)*1.2 - 0.6 # +- ?m/ss max
         #!!!!!!!!
         self.accel = airsim.Vector3r(acc_tmp[0], acc_tmp[1], acc_tmp[2])
         self.vel = airsim.Vector3r(0,0,0)
-        self.max_speed = 1
-        #!!!!!!!!!!
+        self.max_speed = 6
+        #!!!!!!!!
         self.how_long = 0
 
     def step(self):
@@ -95,23 +96,23 @@ class Target:
         self.world_pos += self.vel
 
         if -80 > self.world_pos.x_val:
-            self.accel.x_val = 1
+            self.accel.x_val = 1.2
             is_onEdge = True
             self.how_long = 0
         elif self.world_pos.x_val > 80:
-            self.accel.x_val = -1
+            self.accel.x_val = -1.2
             is_onEdge = True
             self.how_long = 0
         if -80 > self.world_pos.y_val:
-            self.accel.y_val = 1
+            self.accel.y_val = 1.2
             is_onEdge = True
             self.how_long = 0
         elif self.world_pos.y_val > 80:
-            self.accel.y_val = -1
+            self.accel.y_val = -1.2
             is_onEdge = True
             self.how_long = 0
-        if -80 > self.world_pos.z_val:
-            self.accel.z_val = 1
+        if -70 > self.world_pos.z_val:
+            self.accel.z_val = 1.2
             is_onEdge = True
             self.how_long = 0
         elif self.world_pos.z_val > 0:
@@ -121,6 +122,7 @@ class Target:
 
         if self.how_long < 1 and not is_onEdge:
             self.accel = airsim.Vector3r(np.random.rand()*1.2 - 0.6, np.random.rand()*1.2 - 0.6, np.random.rand()*1.2 - 0.6)
+            # !!!!!
             self.how_long = np.random.randint(10,50)
 
 
@@ -129,12 +131,12 @@ class Environment:
     def configure(self):
         self.steps_per_second = 5
         self.max_speed = 21
-        self.goal_distance = 6
+        self.goal_distance = 7
         # !!!!!!!!^8
         # in deg/.2s, 36 -> 180deg/s 
         self.max_yaw_rate = 36
         self.tolerance = 4
-        #!!!!!!!!!!^2
+        #!!!!!!!^2
         self.max_wind = 5
         self.wind_d_rate = 0.1
 
@@ -286,7 +288,7 @@ class Environment:
                 if(not self.was_in):
                     # update last in time
                     self.t_in = self.t_step
-                    print(f"enterted! step: {self.t_in}")
+                    print(f"entered! step: {self.t_in}")
                     self.was_in = True
                 reward = np.log(self.t_step - self.t_in + np.e)+2
                 #!!!!!!
@@ -299,6 +301,7 @@ class Environment:
         my_pos = self.client.simGetVehiclePose().position
         if my_pos.x_val < -100 or 100 < my_pos.x_val or my_pos.y_val < -100 or 100 < my_pos.y_val or my_pos.z_val < -85:
             # out of env, too high up
+            print(f"out of env step: {self.t_step}")
             done = True
         return self.get_state((vx, vy, vz, vyaw)), reward, done, None
         
@@ -341,8 +344,8 @@ critic_optimizer = optim.Adam(critic.parameters(), lr=configs.lr)
 
 # load checkpoint data
 print("loading check point")
-check_file = "Check-101704.pth"
-checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check1", check_file))
+check_file = "Check-121802.pth"
+checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check22b", check_file))
 actor.load_state_dict(checkpoint['Actor_state_dict'])
 critic.load_state_dict(checkpoint['Critic_state_dict'])
 actor_optimizer.load_state_dict(checkpoint['optimizerA_state_dict'])
