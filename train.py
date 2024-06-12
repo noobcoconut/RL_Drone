@@ -332,8 +332,9 @@ class DummyEnv:
         return (np.array([0,1,2,3]), 1, False, None)
 
 # training TO BE REVIEWED
-env = Environment()
-# env = DummyEnv()
+#!!!!!
+# env = Environment()
+env = DummyEnv()
 
 input_dim = env.state_dim
 output_dim = env.action_dim
@@ -343,14 +344,14 @@ actor_optimizer = optim.Adam(actor.parameters(), lr=configs.lr)
 critic_optimizer = optim.Adam(critic.parameters(), lr=configs.lr)
 
 # load checkpoint data
-print("loading check point")
-check_file = "Check-121802.pth"
-checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check22b", check_file))
-actor.load_state_dict(checkpoint['Actor_state_dict'])
-critic.load_state_dict(checkpoint['Critic_state_dict'])
-actor_optimizer.load_state_dict(checkpoint['optimizerA_state_dict'])
-critic_optimizer.load_state_dict(checkpoint['optimizerC_state_dict'])
-print("checking point loaded")
+# print("loading check point")
+# check_file = "Check-121802.pth"
+# checkpoint = torch.load(os.path.join("D:\\unreal\\git_repos\\RL_Drone\\Check22b", check_file))
+# actor.load_state_dict(checkpoint['Actor_state_dict'])
+# critic.load_state_dict(checkpoint['Critic_state_dict'])
+# actor_optimizer.load_state_dict(checkpoint['optimizerA_state_dict'])
+# critic_optimizer.load_state_dict(checkpoint['optimizerC_state_dict'])
+# print("checking point loaded")
 
 
 actor.train()
@@ -370,12 +371,16 @@ for episode in range(configs.num_episodes):
         state_tensor = to_gpu_tensor(state)
         action_prob = actor(state_tensor).to('cpu')
         # action = action_probs.multinomial(1)
-        action = [np.random.choice([0, 1], p=[1-p.item(), p.item()]) for p in action_prob.detach()]
+        probs = F.hardtanh(action_prob, 0.1, 0.9).detach().numpy()
+        probs = (probs - 0.1) * 1.25 # mapping 0 to 1
+
+        action = [np.random.choice([0, 1], p=[1-probs, probs])]
         action = torch.Tensor(action)
         next_state, reward, done, _ = env.step(action)
         # sigmoid -> as prob foreach -> log (mul_product of (each prob))
 
-        probab = 1 - action - action_prob
+        # out of names 
+        probab = 1 - action - probs
         probab = probab.abs() # chance to take this exact action
         log_probs.append(torch.log(probab).sum())
         values.append(critic(state_tensor))
