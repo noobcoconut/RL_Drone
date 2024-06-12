@@ -1,0 +1,210 @@
+collided! step:9
+
+collided! step:9
+
+collided! step:34
+
+collided! step:8
+
+collided! step:16
+
+collided! step:16
+
+collided! step:43
+
+collided! step:13
+
+collided! step:38
+
+collided! step:12
+
+collided! step:6
+
+
+collided! step:9
+
+collided! step:9
+
+collided! step:9
+
+collided! step:19
+
+collided! step:26
+
+collided! step:21
+
+collided! step:23
+
+collided! step:35
+
+collided! step:33
+
+collided! step:10
+
+
+collided! step:135
+
+collided! step:17
+
+collided! step:19
+
+collided! step:12
+
+collided! step:18
+
+collided! step:12
+
+collided! step:18
+
+collided! step:12
+
+collided! step:84
+
+collided! step:16
+
+
+collided! step:23
+
+collided! step:18
+
+collided! step:76
+
+collided! step:16
+
+collided! step:15
+
+collided! step:66
+
+collided! step:17
+
+collided! step:42
+
+collided! step:88
+
+collided! step:42
+
+
+collided! step:54
+
+collided! step:24
+
+collided! step:17
+
+collided! step:202
+
+collided! step:16
+
+collided! step:2
+
+collided! step:27
+
+collided! step:12
+
+collided! step:17
+
+collided! step:74
+
+
+collided! step:35
+
+collided! step:24
+
+collided! step:58
+
+collided! step:27
+
+collided! step:39
+
+collided! step:32
+
+collided! step:11
+
+collided! step:66
+
+collided! step:37
+
+collided! step:21
+
+
+collided! step:53
+
+collided! step:37
+
+collided! step:243
+
+collided! step:36
+
+collided! step:84
+
+collided! step:48
+
+collided! step:160
+
+
+collided! step:58
+
+collided! step:22
+
+
+collided! step:41
+
+
+collided! step:14
+
+collided! step:21
+
+collided! step:76
+
+collided! step:25
+
+collided! step:15
+
+collided! step:13
+
+collided! step:31
+
+collided! step:19
+
+collided! step:47
+
+collided! step:24
+
+
+collided! step:24
+
+collided! step:14
+
+collided! step:19
+
+collided! step:29
+
+collided! step:110
+
+collided! step:27
+
+collided! step:97
+
+collided! step:43
+
+collided! step:92
+
+collided! step:24
+
+
+collided! step:38
+
+collided! step:21
+
+collided! step:89
+
+collided! step:144
+
+collided! step:23
+
+collided! step:88
+
+collided! step:119
+
+collided! step:32
+
+collided! step:18
