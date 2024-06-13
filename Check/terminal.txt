@@ -1,0 +1,205 @@
+episode done: 0
+out of env step: 117
+episode done: 1
+out of env step: 134
+episode done: 2
+out of env step: 127
+episode done: 3
+collided! step:39
+episode done: 4
+out of env step: 99
+episode done: 5
+out of env step: 100
+episode done: 6
+out of env step: 133
+episode done: 7
+collided! step:27
+episode done: 8
+collided! step:81
+episode done: 9
+episode: 9, Rewards: -8.76817535992447
+collided! step:71
+episode done: 10
+out of env step: 125
+episode done: 11
+collided! step:24
+episode done: 12
+entered! step: 36
+exited step: 37
+out of env step: 235
+episode done: 13
+collided! step:48
+episode done: 14
+collided! step:29
+episode done: 15
+collided! step:27
+episode done: 16
+out of env step: 250
+episode done: 17
+collided! step:170
+episode done: 18
+collided! step:2
+episode done: 19
+episode: 19, Rewards: -9.981831722952053
+collided! step:2
+episode done: 20
+out of env step: 160
+episode done: 21
+out of env step: 121
+episode done: 22
+collided! step:31
+episode done: 23
+collided! step:136
+episode done: 24
+collided! step:16
+episode done: 25
+out of env step: 102
+episode done: 26
+out of env step: 88
+episode done: 27
+out of env step: 145
+episode done: 28
+collided! step:32
+episode done: 29
+episode: 29, Rewards: -9.585653614666429
+collided! step:335
+episode done: 30
+out of env step: 80
+episode done: 31
+collided! step:72
+episode done: 32
+collided! step:28
+episode done: 33
+collided! step:35
+episode done: 34
+out of env step: 127
+episode done: 35
+out of env step: 120
+episode done: 36
+out of env step: 195
+episode done: 37
+collided! step:89
+episode done: 38
+collided! step:45
+episode done: 39
+episode: 39, Rewards: -9.009981687143448
+collided! step:25
+episode done: 40
+out of env step: 113
+episode done: 41
+out of env step: 155
+episode done: 42
+collided! step:71
+episode done: 43
+collided! step:141
+episode done: 44
+out of env step: 114
+episode done: 45
+collided! step:26
+episode done: 46
+out of env step: 160
+episode done: 47
+out of env step: 121
+episode done: 48
+collided! step:34
+episode done: 49
+episode: 49, Rewards: -9.57517923173842
+out of env step: 123
+episode done: 50
+out of env step: 154
+episode done: 51
+collided! step:54
+episode done: 52
+out of env step: 86
+episode done: 53
+collided! step:21
+episode done: 54
+out of env step: 68
+episode done: 55
+out of env step: 70
+episode done: 56
+collided! step:2
+episode done: 57
+collided! step:2
+episode done: 58
+out of env step: 90
+episode done: 59
+episode: 59, Rewards: 2.2640882054683873
+out of env step: 82
+episode done: 60
+collided! step:31
+episode done: 61
+out of env step: 356
+episode done: 62
+out of env step: 114
+episode done: 63
+out of env step: 303
+episode done: 64
+collided! step:34
+episode done: 65
+out of env step: 102
+episode done: 66
+episode done: 67
+episode done: 68
+episode done: 69
+
+out of env step: 152
+episode done: 0
+out of env step: 140
+episode done: 1
+collided! step:57
+episode done: 2
+out of env step: 101
+episode done: 3
+out of env step: 176
+episode done: 4
+out of env step: 270
+episode done: 5
+out of env step: 71
+episode done: 6
+collided! step:29
+episode done: 7
+out of env step: 83
+episode done: 8
+collided! step:141
+episode done: 9
+episode: 9, Rewards: -3.9486825555328284
+out of env step: 159
+episode done: 10
+out of env step: 161
+episode done: 11
+collided! step:87
+episode done: 12
+out of env step: 137
+episode done: 13
+collided! step:2
+episode done: 14
+out of env step: 88
+episode done: 15
+collided! step:151
+episode done: 16
+collided! step:73
+episode done: 17
+out of env step: 129
+episode done: 18
+collided! step:17
+episode done: 19
+episode: 19, Rewards: -9.576482817087655
+collided! step:52
+episode done: 20
+collided! step:110
+episode done: 21
+episode done: 22
+episode done: 23
+out of env step: 118
+episode done: 24
+collided! step:208
+episode done: 25
+collided! step:35
+episode done: 26
+collided! step:31
+episode done: 27
+collided! step:95
+episode done: 28
+out of env step: 103
+episode done: 29
