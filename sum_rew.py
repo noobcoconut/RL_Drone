@@ -14,7 +14,6 @@ for i in range(1,10):
     file_path = os.path.join(file_dir, file_name)
     with open(file_path, 'r') as file:
         data = json.load(file)
-        data.append(-9.2)
         rew_list.extend(data)
 
 
@@ -27,7 +26,6 @@ for i in range(1,10):
     file_path = os.path.join(file_dir, file_name)
     with open(file_path, 'r') as file:
         data = json.load(file)
-        data.append(-5.3)
         rew_list.extend(data)
 
 
@@ -42,7 +40,6 @@ for i in range(0,10):
     file_path = os.path.join(file_dir, file_name)
     with open(file_path, 'r') as file:
         data = json.load(file)
-        # data.append(-9)
         rew_list.extend(data)
 
 
@@ -57,7 +54,6 @@ for i in range(0,7):
     file_path = os.path.join(file_dir, file_name)
     with open(file_path, 'r') as file:
         data = json.load(file)
-        # data.append(-9)
         rew_list.extend(data)
 
 for i in range(0,3):
@@ -67,14 +63,12 @@ for i in range(0,3):
     file_path = os.path.join(file_dir, file_name)
     with open(file_path, 'r') as file:
         data = json.load(file)
-        # data.append(-9)
         rew_list.extend(data)
 
 # file_name = f"rew-101704-1.json" #01
 # file_path = os.path.join(file_dir, file_name)
 # with open(file_path, 'r') as file:
 #     data = json.load(file)
-#     # data.append(-9)
 #     rew_list.extend(data)
 
 # print(np.array(rew_list).mean())
